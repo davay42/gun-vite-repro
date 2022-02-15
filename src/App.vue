@@ -9,9 +9,9 @@ import "gun/lib/rindexed";
 import "gun/nts";
 
 
-const gun = Gun();
+const gun = Gun({ peers: [""], localStorage: false });
 
-const db = gun.get('test')
+const db = gun.get('hello').get('world')
 
 db.map().on((d, k) => {
   console.log(k, d)
