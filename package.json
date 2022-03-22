@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "vue": "^3.2.29",
-    "gun": "github:amark/gun"
+    "gun": "0.2020.1236",
+    "buffer": "^6.0.3",
+    "setimmediate": "^1.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.1.0",

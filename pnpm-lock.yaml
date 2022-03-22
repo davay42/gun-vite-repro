@@ -2,12 +2,16 @@ lockfileVersion: 5.3
 
 specifiers:
   '@vitejs/plugin-vue': ^2.1.0
-  gun: github:amark/gun
+  buffer: ^6.0.3
+  gun: 0.2020.1236
+  setimmediate: ^1.0.5
   vite: ^2.7.13
   vue: ^3.2.29
 
 dependencies:
-  gun: github.com/amark/gun/ba7c3e8bdac7897ff36886f2da46405a4251b1e0
+  buffer: 6.0.3
+  gun: 0.2020.1236
+  setimmediate: 1.0.5
   vue: 3.2.31
 
 devDependencies:
@@ -161,9 +165,20 @@ packages:
     resolution: {integrity: sha512-oagLNqpfNv7CvmyMoexMDNyVDSiq1rya0AEUgcLlNHdHgNl6U/hi8xY370n5y+ZIFEXOx0J4B1qF2NDjMRxklA==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      pvutils: 1.0.17
+      pvutils: 1.1.3
     dev: false
     optional: true
+
+  /base64-js/1.5.1:
+    resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /buffer/6.0.3:
+    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
+    dependencies:
+      base64-js: 1.5.1
+      ieee754: 1.2.1
+    dev: false
 
   /csstype/2.6.19:
     resolution: {integrity: sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==}
@@ -406,12 +421,29 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
+  /gun/0.2020.1236:
+    resolution: {integrity: sha512-kTVisg8ipKvkrrcYNkH5zQXrDdMQsCeDVnYQse8loOlSsbLEAgUcD+o8XZIbsq0geY6F/3KFm64dADchInFLtg==}
+    engines: {node: '>=0.8.4'}
+    dependencies:
+      ws: 7.5.7
+    optionalDependencies:
+      '@peculiar/webcrypto': 1.2.3
+      emailjs: 2.2.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
   /has/1.0.3:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /ieee754/1.2.1:
+    resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
+    dev: false
 
   /is-core-module/2.8.1:
     resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
@@ -452,8 +484,8 @@ packages:
     dev: false
     optional: true
 
-  /pvutils/1.0.17:
-    resolution: {integrity: sha512-wLHYUQxWaXVQvKnwIDWFVKDJku9XDCvyhhxoq8dc5MFdIlRenyPI9eSfEtcvgHgD7FlvCyGAlWgOzRnZD99GZQ==}
+  /pvutils/1.1.3:
+    resolution: {integrity: sha512-pMpnA0qRdFp32b1sJl1wOJNxZLQ2cbQx+k6tjNtZ8CpvVhNqEPRgivZ2WOUev2YMajecdH7ctUPDvEe87nariQ==}
     engines: {node: '>=6.0.0'}
     dev: false
     optional: true
@@ -479,6 +511,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /setimmediate/1.0.5:
+    resolution: {integrity: sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=}
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -565,19 +601,4 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: false
-
-  github.com/amark/gun/ba7c3e8bdac7897ff36886f2da46405a4251b1e0:
-    resolution: {tarball: https://codeload.github.com/amark/gun/tar.gz/ba7c3e8bdac7897ff36886f2da46405a4251b1e0}
-    name: gun
-    version: 0.2020.1235
-    engines: {node: '>=0.8.4'}
-    dependencies:
-      ws: 7.5.7
-    optionalDependencies:
-      '@peculiar/webcrypto': 1.2.3
-      emailjs: 2.2.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
     dev: false

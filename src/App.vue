@@ -8,6 +8,11 @@ import "gun/lib/rindexed";
 // import "gun/lib/webrtc";
 import "gun/nts";
 
+import Buffer from 'buffer'
+import setImmediate from 'setimmediate'
+
+window.Buffer = Buffer.Buffer
+document.setImmediate = setImmediate.setImmediate
 
 const gun = Gun({ peers: [""], localStorage: false });
 
@@ -26,6 +31,7 @@ function add() {
 <template>
   <main>
     <button @click="add()">ADD</button>
+    See console
   </main>
 </template>
 
